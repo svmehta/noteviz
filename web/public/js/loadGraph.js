@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#tagList').html(tagTemplate({noteTitle : e.data.node.label, tags : tags}));
   });
 
-  sigma.parsers.gexf('./graph.gexf', s, function (s) {
+  sigma.parsers.gexf('./network.gexf', s, function (s) {
     $('#loading').remove();
     s.refresh();
   });

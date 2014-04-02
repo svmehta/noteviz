@@ -32,3 +32,6 @@ To build fat jar execute:
 
 To layout the graph using the ForceAtlas2 algorithm and color nodes according to communities output from modularity algorithm run:
 + java -jar target/LayoutPlugin-1.0-jar-with-dependencies.jar &lt;inputFilePath&gt; &lt;outputFilePath&gt;
+
+### Visualize graph with Sigma.js
++ Copy network.gexf and accTags.json files to the public subfolder of web and load index.html in a (modern) web browser

@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   var parseDate = d3.time.format("%Y-%m").parse;
 
-  $.get("tags.json", function( allData ) {
+  $.get("accTags.json", function( allData ) {
 
     window.drawGraphForTags = function(tagArray) {
       d3.select("svg").remove()
