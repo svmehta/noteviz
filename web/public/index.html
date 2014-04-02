@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <script src="./js/vendor/sigma/sigma.min.js"></script>
+  <script src="./js/sigma/custom_gexf_parser/gexf-parser.js"></script>
+  <script src="./js/sigma/custom_gexf_parser/sigma.parsers.gexf.js"></script>
+  <script src="./js/vendor/jquery.min.js"></script>
+  <script src="./js/vendor/handlebars.js"></script>
+  <link href="css/note_viz.css" rel="stylesheet">
+  <script src="./js/loadGraph.js"></script>
+  <script src="./js/vendor/d3.min.js"></script>
+  <script src="./js/d3/d3.legend.js"></script>
+  <script src="./js/drawD3Graph.js"></script>
+</head>
+<body>
+
+
+<body>
+  
+  <div id="container">
+    <div id = "title">
+      <h1>Evernote Visualization</h1>
+      <p class="lead"> Auto-tag and visualize your Evernote with <a href="http://wikipedia-miner.cms.waikato.ac.nz/" target="_blank">Wikipedia Miner</a>,<a href="http://sigmajs.org/" target="_blank"> sigma.js</a>, and <a href="http://d3js.org/" target="_blank"> d3.js</a> <br /> 
+      Check out the <a href="#methodology"> methodology </a> and <a href="#source">Source Code</a></p>
+    </div>
+
+    <div id="graph-container">
+      <h1 id ="loading" style="margin-left:10px;"> Loading Graph... </h1>
+    </div>
+
+    <div id="tags">
+      <h3> Top Tags (link probability) </h3>
+      <div id="tagList">
+      </div>
+    </div>
+
+    <div id="d3-graph-container">
+    </div>
+    
+    <div id="explanation"> 
+      <p></p>
+    </div>
+
+  </div>
+</body>

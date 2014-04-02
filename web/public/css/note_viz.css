@@ -1,0 +1,70 @@
+body
+{
+  background-color: #fff;
+  color: #585858;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+body,input
+{
+  font-size: 10pt;
+  font-family: georgia, serif;
+}
+
+ul
+{
+  padding:0;
+  list-style-type: none;
+}
+
+li
+{
+  line-height: 1.5em;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
+
+#graph-container {
+  float: left;
+  height: 450px;
+  width: 800px;
+  background: #F7EADA;
+}
+
+#tags {
+  float:right;
+  width:250px;
+}
+
+#explanation {
+  clear:both;
+}
+
+#d3-graph-container {
+  clear:both;
+  margin-top: 50px;
+  width: 900px;
+  font: 9px sans-serif;
+}

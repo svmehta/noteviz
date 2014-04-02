@@ -1,0 +1,5 @@
+.DS_STORE
+gephi/.classpath
+gephi/.project
+gephi/target/classes/
+lib/*.pyc

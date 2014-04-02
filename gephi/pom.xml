@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.noteviz.gephi</groupId>
+  <artifactId>LayoutPlugin</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <name>gephi</name>
+  <url>http://maven.apache.org</url>
+  <repositories>
+    <repository>
+     <id>gephi-releases</id>
+     <name>Gephi Releases</name>
+     <url>http://nexus.gephi.org/nexus/content/repositories/releases/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>org.gephi</groupId>
+        <artifactId>gephi-toolkit</artifactId>
+        <version>0.8.2</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <archive>
+              <manifest>
+                <mainClass> com.noteviz.gephi.Main </mainClass>
+              </manifest>
+            </archive>
+	        </configuration>
+        <executions>
+          <execution>
+            <id>assemble-all</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
