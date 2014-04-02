@@ -1,4 +1,4 @@
-** Layout Graph with Gephi Toolkit**
+### Layout Graph with Gephi Toolkit
 + Driver for layout and modularity calculation which utilizes gephi toolkit
 
 To build fat jar execute:
