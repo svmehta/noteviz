@@ -1,6 +1,7 @@
 # The short version:
 + Input: a path to your evernote files in html format
 + Output: a network visualization of your notes over time based on auto-generated tags
++ demo: http://evernoteviz.com
 
 # The long version:
 
