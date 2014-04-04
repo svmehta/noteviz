@@ -21,7 +21,7 @@ $(document).ready(function() {
     maxEdgeSize: .1
   });
 
-  s.bind('clickNode', function(e) {
+  s.bind('clickNode overNode', function(e) {
     var tags = JSON.parse(e.data.node.tags)
     if (tags.length > 8) {
       tags = tags.slice(0,8);
