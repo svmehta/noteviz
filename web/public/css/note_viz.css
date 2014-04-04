@@ -53,18 +53,20 @@ li
   background: #F7EADA;
 }
 
-#tags {
-  float:right;
-  width:250px;
-}
-
 #explanation {
   clear:both;
 }
 
+#tags {
+  float:right;
+  max-width:300px;
+}
+
+/*
 #d3-graph-container {
   clear:both;
   margin-top: 50px;
   width: 900px;
   font: 9px sans-serif;
 }
+*/
