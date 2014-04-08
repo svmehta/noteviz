@@ -38,7 +38,77 @@ $(document).ready(function() {
 
   sigma.parsers.gexf('./network.gexf', s, function (s) {
     $('#loading').remove();
+
+    // TODO: remove hack to manually label cliques in graph
+    s.graph.addNode( {
+      "id": "n0",
+      "label": "Linux, AWS, Git, Mongo",
+      "x": 400,
+      "y": 500,
+      "size": 0,
+      "forceLabel" : true,
+      "labelSize" : 14,
+      "color" : "#EBEAE1"
+    })
+
+    s.graph.addNode( {
+      "id": "n1",
+      "label": "API's, Node.js, Javascript",
+      "x": 700,
+      "y": -600,
+      "size": 0,
+      "forceLabel" : true,
+      "labelSize" : 14,
+      "color" : "#EBEAE1"
+    })
+
+    s.graph.addNode( {
+      "id": "n2",
+      "label": "Bitcoin",
+      "x": -1000,
+      "y": -700,
+      "size": 0,
+      "forceLabel" : true,
+      "labelSize" : 14,
+      "color" : "#EBEAE1"
+    })
+
+
+    s.graph.addNode( {
+      "id": "n3",
+      "label": "Stack Overflow",
+      "x": -300,
+      "y": -900,
+      "size": 0,
+      "forceLabel" : true,
+      "labelSize" : 14,
+      "color" : "#EBEAE1"
+    })
+
+    s.graph.addNode( {
+      "id": "n4",
+      "label": "Real Estate, SF",
+      "x": -2000,
+      "y": 600,
+      "size": 0,
+      "forceLabel" : true,
+      "labelSize" : 14,
+      "color" : "#EBEAE1"
+    })
+
+    s.graph.addNode( {
+      "id": "n5",
+      "label": "ElasticSearch",
+      "x": 200,
+      "y": 200,
+      "size": 0,
+      "forceLabel" : true,
+      "labelSize" : 14,
+      "color" : "#EBEAE1"
+    })
+
     s.refresh();
+
   });
 
 });

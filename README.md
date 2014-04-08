@@ -36,3 +36,4 @@ To layout the graph using the ForceAtlas2 algorithm and color nodes according to
 
 ### Visualize graph with Sigma.js
 + Copy network.gexf and accTags.json files to the public subfolder of web and load index.html in a (modern) web browser
++ For now, I've manually labeled communities in the graph, modify loadGraph.js to draw your own labels onto the communities

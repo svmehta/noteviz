@@ -50,7 +50,7 @@
           obj.label = obj.attributes.title;
           obj.tags = obj.attributes.tags;
           obj.modularityClass = obj.attributes["modularity class"];
-          obj.size = obj.viz.size;
+          obj.size = Math.min(obj.viz.size, 4);
           obj.color = obj.viz.color;
         }
       }
