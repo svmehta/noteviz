@@ -49,6 +49,7 @@
           }
           obj.label = obj.attributes.title;
           obj.tags = obj.attributes.tags;
+          obj.modularityClass = obj.attributes["modularity class"];
           obj.size = obj.viz.size;
           obj.color = obj.viz.color;
         }
