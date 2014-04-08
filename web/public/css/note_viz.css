@@ -7,21 +7,16 @@ body
   margin-bottom: 50px;
 }
 
-body,input
-{
-  font-size: 11pt;
-  font-family: georgia, serif;
-}
-
 ul
 {
   padding:0;
   list-style-type: none;
 }
 
-li
+#tagList li
 {
-  line-height: 1.5em;
+  display: inline;
+  margin-right:10px;
 }
 
 .axis path,
@@ -47,26 +42,22 @@ li
   opacity:0.8;}
 
 #graph-container {
-  float: left;
-  height: 450px;
-  width: 800px;
-  background: #F7EADA;
+  height: 500px;
 }
 
-#explanation {
-  clear:both;
+.gray-bg {
+  background: #EBEAE1;
+}
+
+#d3-graph-container {
+  font-size: 10px;
 }
 
 #tags {
-  float:right;
-  max-width:300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-/*
-#d3-graph-container {
-  clear:both;
-  margin-top: 50px;
-  width: 900px;
-  font: 9px sans-serif;
+#about {
+  margin-bottom: 50px;
 }
-*/

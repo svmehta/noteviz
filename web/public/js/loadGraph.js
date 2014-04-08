@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   var s = new sigma('graph-container');
-  var tagTemplateString = "<h3> {{noteTitle}} </h3> <ul> {{#each tags}} <li> {{title}}, {{weight}} </li> {{/each}} </ul>"
+  var tagTemplateString = "<b>{{noteTitle}}:</b> <ul> {{#each tags}} <li> <span class=\"label label-primary\"> {{title}} </span> </li> {{/each}} </ul>"
   var tagTemplate = Handlebars.compile(tagTemplateString);
 
   s.settings({
@@ -23,13 +23,13 @@ $(document).ready(function() {
 
   s.bind('clickNode overNode', function(e) {
     var tags = JSON.parse(e.data.node.tags)
-    if (tags.length > 8) {
-      tags = tags.slice(0,8);
+    if (tags.length > 10) {
+      tags = tags.slice(0,10);
     }
-    tags.forEach(function(tag) {
-      tag.weight = Math.round(tag.weight*100);
-    });
+
     tagNames = tags.map(function(tag) { return tag.title});
+
+    //TODO: don't use global namespace
     window.drawGraphForTags(tagNames);
     $('#tagList').html(tagTemplate({noteTitle : e.data.node.label, tags : tags}));
   });
@@ -38,6 +38,5 @@ $(document).ready(function() {
     $('#loading').remove();
     s.refresh();
   });
-
 
 });

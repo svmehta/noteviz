@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <head>
+    <link href="css/note_viz.css" rel="stylesheet">   
+
+    <script src="./js/vendor/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vendor/bootstrap-theme.min.css">
+
+    <script src="./js/vendor/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">NoteViz</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://github.com/svmehta/noteviz" target="_blank">Source</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div id="about"> 
+        <div class="row">
+          <div class="col-md-8 col-md-offset-1">
+            <h3> What is this? </h3>
+            <p> 
+              I recently crossed the 1,000 note mark in my Evernote account and wanted to get a sense of what I’ve been reading and writing in aggregate. This visualization is based on some tech I was exploring at a previous startup (Magic Notebook).
+            </p>
+            <p>
+              The nodes in the network above are individual notes. For each note, a set of tags is automatically generated which serves as a feature vector for the note. For each pair of notes, we assign a similarity score and draw an edge if the score is over a certain threshold. Colors represent detected communities from notes which cover similar material.
+            </p>
+          </div>
+
+
+          <div class="col-md-8 col-md-offset-1">
+            <h3> Generating Tags for Each Note </h3> 
+            <p> 
+              After extracting the body of each note, pass it through the Wikipedia Miner Toolkit. The toolkit is composed of a set of machine learned algorithms that when given an input document attempts to identify important concepts in the text and automatically links these concepts to their corresponding Wikipedia pages. Roughly, the algorithm is split into three parts...
+            </p>
+            <ol>
+            <li>
+              Candidate Selection - Identify whether any n-grams in the article match against a database of existing Wikipedia anchor text. Multiple anchor texts can link to the same article (i.e. “law degree”, “degree in law”, “JD”, and “juris doctor” may all be anchors for the article http://en.wikipedia.org/wiki/Juris_Doctor)
+            </li>
+            <li>
+              Link Disambiguation - Given a set of possible anchors linking to possible articles, assign a probability that the anchor actually refers to that article. For instance the anchor text “president” could refer to the “President of the United States” or the “President of Russia”. In order to disambiguate between these two senses, a classifier is trained over Wikipedia data that considers not only the commonness of the anchor referring to the article (i.e. frequency that president refers to US president), but also the relatedness of the potential link to other unambiguous terms in the dataset (i.e. if the body of text unambiguously links to “Vladimir Putin” and “Russia” then the sense for “President of Russia” gets boosted in probability).
+            </li>
+            <li>
+              Link Detection - As a final step, the algorithm considers whether the possible set of topics to link are relevant enough to actually create a connection. For instance, the word “the” is very common in Wikipedia articles, but is not linked to very often from other articles.
+            </li>
+            </ol>
+            <p>
+              For a more thorough explanation check out<a href="http://cs.smith.edu/classwiki/images/c/c8/Open_source_mining_wikipedia.pdf" target="_blank"> this</a>.
+            </p>
+          </div>
+
+          <div class="col-md-8 col-md-offset-1">
+            <h3> Assess Similarity Between Notes </h3>
+            <p> 
+              Given tag vectors for each document, we can assign a score for how similar each set of documents is (i.e. cosine similarity). If the similarity between two nodes is above a certain threshold, we draw an edge in the network.
+            </p>
+          </div>
+
+          <div class="col-md-8 col-md-offset-1">
+            <h3> Layout Network Using Force Directed Layout </h3>
+            <p> 
+              Treating each node as a ball and each edge as a spring, the network is laid out to minimize the total energy of the system. I used the ForceAtlas2 algorithm from the Gephi Toolkit.
+            </p>
+          </div>
+
+          <div class="col-md-8 col-md-offset-1">
+            <h3> Detect Communities in the Network </h3>
+            <p> 
+              The modularity of a network is a scalar value that compares the density of connections between nodes in the same community versus connections between communities. The colors in the network represent detected communities using the <a href="https://sites.google.com/site/findcommunities/" target="_blank">Louvain Algorithm</a> from the Gephi Toolkit.
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
