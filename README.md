@@ -21,7 +21,7 @@
 python run.py &lt;path to directory of notes&gt;
 
 This will...
-+ Autogenerate tags for each of your notes (by sending the bag of words representing your note to the wikipedia miner toolkit in plaintext! Only use with non-sensitive data)
++ Autogenerate tags for each of your notes using Wikipedia Miner (**N.B. this entails sending the text of your notes to the wikipedia miner toolkit over http as the service isn't available over https! Only use with non-sensitive data**)
 + Computes pairwise similarity between each set of notes according to their tags
 + Outputs a graph in .gexf format based on these nodes and edges.
 
