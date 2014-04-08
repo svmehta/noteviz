@@ -56,7 +56,7 @@
             </p>
             <ol>
             <li>
-              Candidate Selection - Identify whether any n-grams in the article match against a database of existing Wikipedia anchor text. Multiple anchor texts can link to the same article (i.e. “law degree”, “degree in law”, “JD”, and “juris doctor” may all be anchors for the article http://en.wikipedia.org/wiki/Juris_Doctor)
+              Candidate Selection - Identify whether any n-grams in the article match against a database of existing Wikipedia anchor text. Multiple anchor texts can link to the same article (i.e. “law degree”, “degree in law”, “JD”, and “juris doctor” may all be anchors for the article <a href=http://en.wikipedia.org/wiki/Juris_Doctor target="_blank"> Juris_Doctor</a>.)
             </li>
             <li>
               Link Disambiguation - Given a set of possible anchors linking to possible articles, assign a probability that the anchor actually refers to that article. For instance the anchor text “president” could refer to the “President of the United States” or the “President of Russia”. In order to disambiguate between these two senses, a classifier is trained over Wikipedia data that considers not only the commonness of the anchor referring to the article (i.e. frequency that president refers to US president), but also the relatedness of the potential link to other unambiguous terms in the dataset (i.e. if the body of text unambiguously links to “Vladimir Putin” and “Russia” then the sense for “President of Russia” gets boosted in probability).
