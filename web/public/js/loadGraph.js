@@ -6,14 +6,14 @@ $(document).ready(function() {
 
   s.settings({
     defaultLabelColor: '#000',
-    defaultLabelSize: 10,
+    defaultLabelSize: 8,
     drawEdges : true,
     batchEdgesDrawing : true,
     defaultLabelBGColor: '#fff',
     defaultLabelHoverColor: '#000',
     defaultEdgeColor:'#ddd',
     defaultNodeColor:'#00CCFF',
-    labelThreshold: 7,
+    labelThreshold: 6,
     defaultEdgeType: 'curve',
     minNodeSize: 1,
     maxNodeSize: 3,
@@ -32,6 +32,8 @@ $(document).ready(function() {
     //TODO: don't use global namespace
     window.drawGraphForTags(tagNames);
     $('#tagList').html(tagTemplate({noteTitle : e.data.node.label, tags : tags}));
+
+
   });
 
   sigma.parsers.gexf('./network.gexf', s, function (s) {

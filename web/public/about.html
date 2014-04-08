@@ -56,17 +56,17 @@
             </p>
             <ol>
             <li>
-              Candidate Selection - Identify whether any n-grams in the article match against a database of existing Wikipedia anchor text. Multiple anchor texts can link to the same article (i.e. “law degree”, “degree in law”, “JD”, and “juris doctor” may all be anchors for the article <a href=http://en.wikipedia.org/wiki/Juris_Doctor target="_blank"> Juris_Doctor</a>.)
+              Candidate Selection - Identify whether any n-grams in the article match against a database of existing Wikipedia anchor text. Multiple anchor texts can link to the same article (i.e. “law degree”, “degree in law”, “JD”, and “juris doctor” may all be anchors for the article <a href=http://en.wikipedia.org/wiki/Juris_Doctor target="_blank"> Juris_Doctor</a>)
             </li>
             <li>
               Link Disambiguation - Given a set of possible anchors linking to possible articles, assign a probability that the anchor actually refers to that article. For instance the anchor text “president” could refer to the “President of the United States” or the “President of Russia”. In order to disambiguate between these two senses, a classifier is trained over Wikipedia data that considers not only the commonness of the anchor referring to the article (i.e. frequency that president refers to US president), but also the relatedness of the potential link to other unambiguous terms in the dataset (i.e. if the body of text unambiguously links to “Vladimir Putin” and “Russia” then the sense for “President of Russia” gets boosted in probability).
             </li>
             <li>
-              Link Detection - As a final step, the algorithm considers whether the possible set of topics to link are relevant enough to actually create a connection. For instance, the word “the” is very common in Wikipedia articles, but is not linked to very often from other articles.
+              Link Detection - As a final step, the algorithm considers whether the possible set of topics to link are relevant enough to actually create a connection. For instance, the word “the” is very common in Wikipedia articles, but is not linked to very often from other articles. Again a classifier is trained with the input being the possible pairs of anchors and links with probabilities from the previous two steps in addition to extra features about these links.
             </li>
             </ol>
             <p>
-              For a more thorough explanation check out<a href="http://cs.smith.edu/classwiki/images/c/c8/Open_source_mining_wikipedia.pdf" target="_blank"> this</a>.
+              For a more thorough explanation check out the <a href="http://cs.smith.edu/classwiki/images/c/c8/Open_source_mining_wikipedia.pdf" target="_blank">research paper</a>.
             </p>
           </div>
 
