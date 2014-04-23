@@ -2,19 +2,22 @@ import urllib
 import requests
 import json
 
+#TODO: move to conf file
 WIKIPEDIA_MINER = 'http://wikipedia-miner.cms.waikato.ac.nz/services/wikify'
+MIN_LINK_PROBABILITY = .4
+MAX_TEXT_LENGTH = 6000
 
 class WikipediaMiner:
 
   def buildRequestString(self, text):
     #limit to first 6,000 characters
-    if text and len(text) > 6000:
-      text = text[0:6000]
+    if text and len(text) > MAX_TEXT_LENGTH:
+      text = text[0:MAX_TEXT_LENGTH]
 
     params = { 
       'source' : text.encode('utf-8')
       , 'responseFormat' : 'json'
-      , 'minProbability' : 0.4
+      , 'minProbability' : MIN_LINK_PROBABILITY
     }
 
     encodedText = urllib.urlencode(params)

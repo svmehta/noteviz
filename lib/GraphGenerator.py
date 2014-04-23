@@ -4,8 +4,10 @@ from sets import Set
 import networkx as nx
 import collections
 
+#TODO: move to conf file
 MAX_TAGS = 20
 MIN_EDGE_WEIGHT = 0.20
+NODE_FILE_LINE_LEN = 3
 
 class GraphGenerator:
 
@@ -30,7 +32,7 @@ class GraphGenerator:
 
         line = line.split('\t')
 
-        if len(line) == 3:
+        if len(line) == NODE_FILE_LINE_LEN:
           tags = json.loads(line[2])
           if len(tags) > 1:
             self.nodes[count] = {
@@ -140,14 +142,3 @@ class GraphGenerator:
         matches += 1.0
 
     return matches/(len(v1Ids)*len(v2Ids))
-
-  def layoutGraph(self):
-    print 'start layout'
-    #pos=nx.spring_layout(self.graph)
-    #nx.draw_spring(self.graph, iterations=100)
-    nx.write_gexf(self.graph, 'graph.gexf',encoding='utf-8', prettyprint=True)
-    print 'end layout'
-
-#g = GraphGenerator('../output.tsv', '../graph.tsv')
-#g.generateGraph()
-#g.layoutGraph()

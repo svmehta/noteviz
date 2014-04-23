@@ -32,6 +32,8 @@ public class LayoutApp {
 
     private String importFilePath;
     private String exportFilePath;
+    private static final int JITTER_TOLERANCE = 0.3;
+    private static final int LAYOUT_ITERATIONS = 2000;
 
     public LayoutApp (String importFilePath, String exportFilePath) {
         this.importFilePath = importFilePath;
@@ -86,14 +88,14 @@ public class LayoutApp {
         partitionController.transform(p, nodeColorTransformer);
         
 
-        //Run ForceAtlas2 layout for 2000 iterations
+        //Run ForceAtlas2 layout for set number of iterations
         System.out.println("Starting layout ForceAtlas2");
         ForceAtlas2 forceLayout = new ForceAtlas2(null);
         forceLayout.setGraphModel(graphModel);
         forceLayout.resetPropertiesValues();
-        forceLayout.setJitterTolerance(0.3);
+        forceLayout.setJitterTolerance(JITTER_TOLERANCE);
         forceLayout.initAlgo();
-        for (int i = 0; i < 2000 && forceLayout.canAlgo(); i++) {
+        for (int i = 0; i < LAYOUT_ITERATIONS && forceLayout.canAlgo(); i++) {
         	forceLayout.goAlgo();
         	if (i%100 == 0) {
             	System.out.println("force layout step: " + i);
